@@ -1,0 +1,7 @@
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\TestStuff\bin\Debug\TestStuff.exe.config
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\TestStuff\bin\Debug\TestStuff.exe
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\TestStuff\bin\Debug\TestStuff.pdb
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\TestStuff\obj\Debug\TestStuff.csprojAssemblyReference.cache
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\TestStuff\obj\Debug\TestStuff.csproj.CoreCompileInputs.cache
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\TestStuff\obj\Debug\TestStuff.exe
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\TestStuff\obj\Debug\TestStuff.pdb

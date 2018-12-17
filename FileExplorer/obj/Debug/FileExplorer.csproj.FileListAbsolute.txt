@@ -1,0 +1,14 @@
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\FileExplorer.exe.config
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\FileExplorer.exe
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\FileExplorer.pdb
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\obj\Debug\FileExplorer.csprojAssemblyReference.cache
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\obj\Debug\FileExplorer.csproj.CoreCompileInputs.cache
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\obj\Debug\FileExplorer.exe
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\obj\Debug\FileExplorer.pdb
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\CsvHelper.dll
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\System.ValueTuple.dll
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\CsvHelper.xml
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\System.ValueTuple.xml
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\obj\Debug\FileExplorer.csproj.CopyComplete
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\ZetaLongPaths.dll
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\FileExplorer\bin\Debug\ZetaLongPaths.pdb
