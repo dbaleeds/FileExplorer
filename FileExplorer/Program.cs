@@ -182,7 +182,7 @@ namespace FileExplorer
 
         static void Main(string[] args)
         {
-            string path = "S:\\Faculty-of-Medicine-and-Health\\Research-Projects";
+            string path = "C:\\youridirectoryordrive";
             var filename = Directory.GetCurrentDirectory() + @"\file"+ DateTimeOffset.UtcNow.ToUnixTimeSeconds() + ".csv";
             List<Csv> CsvFile = new List<Csv>();
             DirSearch(CsvFile, path, 2);
