@@ -4,3 +4,4 @@ N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\A
 N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\AdGroupExtractor\obj\Debug\AdGroupExtractor.csproj.CoreCompileInputs.cache
 N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\AdGroupExtractor\obj\Debug\AdGroupExtractor.exe
 N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\AdGroupExtractor\obj\Debug\AdGroupExtractor.pdb
+N:\Academic-Services\ISS\IRC-Data-Services\Development\Prototypes\FileExplorer\AdGroupExtractor\obj\Debug\AdGroupExtractor.csprojAssemblyReference.cache

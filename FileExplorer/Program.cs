@@ -68,6 +68,51 @@ namespace FileExplorer
             return size;
         }
 
+
+        static List<string> GetUsers(List<String> ToCheck) {
+            // set up domain context
+            PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
+            StringBuilder UsersList = new StringBuilder();
+            List<string> Users = new List<string>();
+
+            foreach (string check in ToCheck)
+            {
+                // find the group in question
+                GroupPrincipal group = GroupPrincipal.FindByIdentity(ctx, check);
+                // if found....
+                if (group != null)
+                {
+                    // iterate over members
+                    foreach (Principal p in group.GetMembers())
+                    {
+                        Users.Add(p.DisplayName + " <" + p.UserPrincipalName + ">");
+                        // do whatever you need to do to those members
+                        UserPrincipal theUser = p as UserPrincipal;
+                        if (theUser != null)
+                        {
+                            if (p.DisplayName != null)
+                            {
+                                UsersList.Append(p.DisplayName + " <" + p.UserPrincipalName + ">");
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    UserPrincipal foundUser = UserPrincipal.FindByIdentity(ctx, check);
+                    if (foundUser != null)
+                    {
+                        if (foundUser.DisplayName != null)
+                        {
+                            Users.Add(foundUser.DisplayName + " <" + foundUser.UserPrincipalName + ">");
+                        }
+                    }
+                }
+            }
+
+            return Users = Users.Union(Users).ToList();
+        }
+
         static void DirSearch(List<Csv> csvFile, string sDir, int Deep)
         {
             
@@ -79,24 +124,24 @@ namespace FileExplorer
                     DirectoryInfo dInfo = new DirectoryInfo(d);
                     DirectorySecurity dSecurity = dInfo.GetAccessControl();
                     AuthorizationRuleCollection acl = dSecurity.GetAccessRules(true, true, typeof(System.Security.Principal.NTAccount));
-                    StringBuilder accessTxt = new StringBuilder();
+                    List<string> accessList = new List<string>();
+
                     foreach (FileSystemAccessRule ace in acl)
                     {
-                        accessTxt.Append(ace.IdentityReference.Value);
-                        accessTxt.Append(" : ");
-                    }
-
-                    if (accessTxt.Length > 2) {
-                        accessTxt.Length = accessTxt.Length - 2;        
+                        accessList.Add(ace.IdentityReference.Value);
                     }
 
                     /* get size */ 
                     long length = DirSize(new ZetaLongPaths.ZlpDirectoryInfo(d));
 
-                    /* add to CSV file */
-                    csvFile.Add(new Csv(d, ToBytesCount(length), Directory.GetLastAccessTime(d), Directory.GetLastWriteTime(d), accessTxt.ToString()));
+                    List<string> users = GetUsers(accessList);
 
-                    Console.WriteLine(d + ToBytesCount(length).ToString() + Directory.GetLastAccessTime(d).ToString() + Directory.GetLastWriteTime(d) + accessTxt.ToString());
+                    
+
+                    /* add to CSV file */
+                    csvFile.Add(new Csv(d, ToBytesCount(length), dInfo.LastAccessTime.Date, dInfo.LastWriteTime.Date, dInfo.CreationTime, String.Join("; ", accessList.ToArray()), String.Join("; ", users.ToArray())));
+
+                    Console.WriteLine(d + ToBytesCount(length).ToString() + Directory.GetLastAccessTime(d).ToString() + Directory.GetLastWriteTime(d) + dInfo.CreationTime + String.Join("; ", accessList.ToArray()));
 
                     if (Deep > 0) {
                         DirSearch(csvFile, d, Deep - 1);
@@ -109,18 +154,22 @@ namespace FileExplorer
 
         internal class Csv
         {
-            public Csv(string _Name, string _size, DateTime _lastAccessed, DateTime _lastWriteTime, string _access) {
+            public Csv(string _Name, string _size, DateTime _lastAccessed, DateTime _lastWriteTime, DateTime _creationTime, string _access, string _users) {
                 Name = _Name;
                 Size = _size;
+                LastAccessed = _lastAccessed;
                 LastWriteTime = _lastWriteTime;
+                CreationTime = _creationTime;
                 Access = _access;
+                Users = _users;
             }
             public string Name { get; set; }
             public string Size { get; set; }
             public DateTime LastAccessed { get; set; }
             public DateTime LastWriteTime { get; set; }
+            public DateTime CreationTime { get; set; }
             public string Access { get; set; }
-            /*public int Age { get; set; }*/
+            public string Users { get; set; }
         }
 
         static void WriteCsvFile(string filename, IEnumerable<Csv> csv)
@@ -133,10 +182,10 @@ namespace FileExplorer
 
         static void Main(string[] args)
         {
-            string path = "M:\\Work\\Projects\\Code\\Tools";
-            var filename = Directory.GetCurrentDirectory() + @"\file.csv";
+            string path = "S:\\Faculty-of-Medicine-and-Health\\Research-Projects";
+            var filename = Directory.GetCurrentDirectory() + @"\file"+ DateTimeOffset.UtcNow.ToUnixTimeSeconds() + ".csv";
             List<Csv> CsvFile = new List<Csv>();
-            DirSearch(CsvFile, path, 1);
+            DirSearch(CsvFile, path, 2);
             WriteCsvFile(filename, CsvFile);
             Console.WriteLine("here");
             Console.ReadKey();
